@@ -10,7 +10,8 @@ install:
 
 # Run the unit test
 script:
-  - coverage run tests.py
+  - coverage run tests\test_color.py
+  - coverage run tests\test_piece.py
 
 
 after_success:
