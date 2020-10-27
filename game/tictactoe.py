@@ -20,10 +20,11 @@ class Piece:
         self.__cell = None
     
     def __str__(self):
-        if self.get_cell().is_empty():
-            return f"None/{self.get_color()}"
+        if self.get_cell():
+            if self.get_cell().is_empty():
+                return f"{str(self.get_cell())}/{self.get_color()}"
         else:
-            return f"{str(self.get_cell())}/{self.get_color()}"        
+            return f"None/{self.get_color()}"
 
     def place_in(self, cell):
         self.__cell = cell
