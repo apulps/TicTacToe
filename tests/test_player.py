@@ -30,3 +30,7 @@ class TestPlayer(unittest.TestCase):
 
         self.assertIs(self.player1.get_color(), piece1.get_color())
         self.assertIs(self.player2.get_color(), piece2.get_color())
+        
+    def test_to_string(self):
+        self.assertEqual(str(self.player1), "Bob/O")
+        self.assertEqual(str(self.player2), "Steve/X")
