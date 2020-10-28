@@ -180,7 +180,7 @@ class Referee:
     def change_turn(self):
         self.__turn = False if self.__turn else True
     
-    def get_pieces_coordenates(self):
+    def get_pieces_coordinates(self):
         color = self.get_player_without_turn().get_color()
         coordenates = []
 
@@ -204,7 +204,7 @@ class Referee:
         ]
 
         for combination in winning_combinations:
-            if all(coordinates in self.get_pieces_coordenates() for coordinates in combination):
+            if all(coordinates in self.get_pieces_coordinates() for coordinates in combination):
                 return self.get_player_without_turn()
         
         return result
@@ -222,7 +222,7 @@ class TicTacToe:
         return self.__referee
 
     def make_move(self, cell):
-        self.__referee.play(cell) if cell.is_empty() and self.__referee.is_legal_move(cell) else self.show_message_wrong_move()
+        self.__referee.play(cell) if self.__referee.is_legal_move(cell) else self.show_message_wrong_move()
             
     def insert_cell(self):
         valid = False
