@@ -7,10 +7,14 @@ python: 3.9.0
 # Install the codecov pip dependency
 install:
   - pip install coverage
+  - pip install pytest
+  - pip install codecov
+  - pip install pytest-cov
+  
 
 # Run the unit test
 script:
-  - coverage run tests
+  - pytest --cov-report term --cov=investpy tests/
 
 
 after_success:
