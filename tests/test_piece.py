@@ -46,8 +46,3 @@ class TestPiece(unittest.TestCase):
 
         self.assertEqual(str(self.white_piece), "(0/0)/O")
         self.assertEqual(str(self.black_piece), "(1/1)/X")
-
-
-
-if __name__ == "__main__":
-    unittest.main()
