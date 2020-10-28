@@ -92,14 +92,16 @@ class Player:
 
 
 class Board:
-    def __init__(self, rows, columns):
-        self.__rows = rows
-        self.__columns = columns
-        self.__cells = [[None, None, None], [None, None, None], [None, None, None]]
+    def __init__(self):
+        self.__rows = 3
+        self.__columns = 3
+        self.__cells = []
 
-        for i in range(rows):
-            for j in range(columns):
-                self.__cells[i][j] = Cell(i, j)
+        for i in range(self.__rows):
+            aux = []
+            for j in range(self.__rows):
+                aux.append(Cell(i, j))
+            self.__cells.append(aux)
     
     def __str__(self):
         r = ""
@@ -214,8 +216,7 @@ class Referee:
 
 class TicTacToe:
     def __init__(self):
-        self.__size = 3
-        self.__referee = Referee(Board(self.__size, self.__size))
+        self.__referee = Referee(Board())
     
     def get_referee(self):
         return self.__referee
