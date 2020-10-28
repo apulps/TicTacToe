@@ -11,7 +11,7 @@ install:
 
 # Run the unit test
 script:
-  - coverage run --source=./tests -m unittest discover tests/
+  - coverage run --source=./ -m unittest discover tests/
 
 
 after_success:
