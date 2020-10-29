@@ -50,7 +50,7 @@ class TestTicTacToe(unittest.TestCase):
         with mock.patch.object(builtins, 'input', lambda : args.pop()):
             result = StringIO()
             sys.stdout = result
-            cell = self.tictactoe.insert_cell()
+            self.tictactoe.insert_cell()
             self.assertEqual(result.getvalue(), "Wrong input!!! Try again: \n")
 
     def test_show_message_wrong_move(self):
