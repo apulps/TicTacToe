@@ -46,12 +46,12 @@ class TestTicTacToe(unittest.TestCase):
             self.assertEqual(cell.get_row(), 2)
             self.assertEqual(cell.get_column(), 2)
 
-        args = ['2A', '1D']
+        args = ['2A', '1D', '4C']
         with mock.patch.object(builtins, 'input', lambda : args.pop()):
             result = StringIO()
             sys.stdout = result
             self.tictactoe.insert_cell()
-            self.assertEqual(result.getvalue(), "Wrong input!!! Try again: \n")
+            self.assertEqual(result.getvalue(), "Wrong input!!! Try again: \nWrong input!!! Try again: \n")
 
     def test_show_message_wrong_move(self):
         result = StringIO()
@@ -134,3 +134,12 @@ class TestTicTacToe(unittest.TestCase):
         sys.stdout = result
         self.tictactoe.display_below_letters(self.tictactoe.get_referee().get_board())
         self.assertEqual(result.getvalue(), "\t A  B  C \n\n")
+
+    def test_main(self):
+        args = ["Jon", "Elisa"]
+        moves = ['1A','2A','2B','2C','3C']
+        with mock.patch.object(builtins, 'input', lambda : moves.pop()):
+            main(args)
+
+        args = ["Charlie"]
+        main(args)
