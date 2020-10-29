@@ -147,5 +147,21 @@ class TestTicTacToeTextUI(unittest.TestCase):
 
 
 
-class TestTicTacToeGUI(unittest.TestCase):
-    pass
+class TestTicTacToeGUI(unittest.TestCase): # pragma: no cover
+    def setUp(self):
+        self.tictactoeGUI = TicTacToeGUI()
+    
+    def test_constructor(self):
+        self.assertIsInstance(self.tictactoeGUI, TicTacToeGUI)
+    
+    def test_display_start_game_window(self):
+        #self.tictactoeGUI.display_start_game_window()
+        #print(self.tictactoeGUI.get_referee().get_player_with_turn())
+        #print(self.tictactoeGUI.get_referee().get_player_without_turn())
+        pass
+
+    def test_display_game_window(self):
+        pass
+
+    def test_display_result_game_window(self):
+        pass
