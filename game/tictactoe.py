@@ -217,13 +217,13 @@ class Referee:
 class TicTacToe:
     def __init__(self):
         self.__referee = Referee(Board())
-    
+
     def get_referee(self):
         return self.__referee
 
     def make_move(self, cell):
         self.__referee.play(cell) if self.__referee.is_legal_move(cell) else self.show_message_wrong_move()
-            
+
     def insert_cell(self):
         valid = False
 
@@ -248,23 +248,7 @@ class TicTacToe:
             column = 2
         
         return self.get_referee().get_board().get_cell(row, column)
-    
-    def show_message_wrong_move(self):
-        print("Wrong move\nCheck syntax. You cannot place a piece in a non empty cell.")
-    
-    def show_prompt(self):
-        print(f"\nTurn of {self.__referee.get_player_with_turn().get_name()} with pieces {str(self.__referee.get_player_with_turn().get_color())} of color {self.__referee.get_player_with_turn().get_color()}")
-        print("\nEnter play: ")
-    
-    def show_result_match(self, referee):
-        self.display_board(referee.get_board())
-        winner = referee.get_winner()
-
-        if winner:
-            print(f"The winner is {str(winner)}!")
-        else:
-            print("Draw!")
-    
+     
     def are_valid_args(self, args):
         return False if len(args) != 0 and len(args) != 2 else True
     
@@ -281,6 +265,25 @@ class TicTacToe:
     def set_up_referee(self, name1, name2):
         self.__referee.set_players(name1)
         self.__referee.set_players(name2)
+
+
+
+class TicTacToeTextUI(TicTacToe):
+    def show_message_wrong_move(self):
+        print("Wrong move\nCheck syntax. You cannot place a piece in a non empty cell.")
+    
+    def show_prompt(self):
+        print(f"\nTurn of {self._TicTacToe__referee.get_player_with_turn().get_name()} with pieces {str(self._TicTacToe__referee.get_player_with_turn().get_color())} of color {self._TicTacToe__referee.get_player_with_turn().get_color()}")
+        print("\nEnter play: ")
+    
+    def show_result_match(self, referee):
+        self.display_board(referee.get_board())
+        winner = referee.get_winner()
+
+        if winner:
+            print(f"The winner is {str(winner)}!")
+        else:
+            print("Draw!")
     
     def show_help(self):
         print("TicTacToe Game")
@@ -312,27 +315,27 @@ class TicTacToe:
 
 
 def main(args):
-    tictactoe = TicTacToe()
+    tictactoetextUI = TicTacToeTextUI()
 
-    if not tictactoe.are_valid_args(args):
-        tictactoe.show_help()
+    if not tictactoetextUI.are_valid_args(args):
+        tictactoetextUI.show_help()
     else:
-        tictactoe.set_up_with_args(args)
+        tictactoetextUI.set_up_with_args(args)
         keep_going = True
-        tictactoe.display_board(tictactoe.get_referee().get_board())
+        tictactoetextUI.display_board(tictactoetextUI.get_referee().get_board())
 
         while keep_going:
-            tictactoe.show_prompt()
-            cell = tictactoe.insert_cell()
-            tictactoe.make_move(cell)
+            tictactoetextUI.show_prompt()
+            cell = tictactoetextUI.insert_cell()
+            tictactoetextUI.make_move(cell)
 
-            if tictactoe.get_referee().is_over():
+            if tictactoetextUI.get_referee().is_over():
                 keep_going = False
             else:
-                tictactoe.display_board(tictactoe.get_referee().get_board())
+                tictactoetextUI.display_board(tictactoetextUI.get_referee().get_board())
         
     try:
-        tictactoe.show_result_match(tictactoe.get_referee())
+        tictactoetextUI.show_result_match(tictactoetextUI.get_referee())
     except AttributeError:
         pass
 
