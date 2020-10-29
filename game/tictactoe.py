@@ -270,8 +270,8 @@ class TicTacToe:
     
     def set_up_with_args(self, args):
         if len(args) == 0:
-            name1 = "Player A"
-            name2 = "Player B"
+            name1 = "Ellie"
+            name2 = "Joel"
         else:
             name1 = args[0]
             name2 = args[1]
