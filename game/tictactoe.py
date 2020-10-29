@@ -231,7 +231,7 @@ class TicTacToe:
             s = input()
             if len(s) == 2:
                 try:
-                    if int(s[0]) and s[1] in ["A", "B", "C"]:
+                    if int(s[0]) and int(s[0]) in [1, 2, 3] and s[1] in ["A", "B", "C"]:
                         valid = True
                     else:
                         raise ValueError
@@ -331,9 +331,11 @@ def main(args):
             else:
                 tictactoe.display_board(tictactoe.get_referee().get_board())
         
-    tictactoe.show_result_match(tictactoe.get_referee())
-
+    try:
+        tictactoe.show_result_match(tictactoe.get_referee())
+    except AttributeError:
+        pass
 
 
 if __name__ == "__main__":
-    main(sys.argv[1:])
+    main(sys.argv[1:]) # pragma: no cover
