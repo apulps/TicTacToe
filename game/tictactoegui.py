@@ -39,7 +39,7 @@ class TicTacToeGUI(TicTacToe): # pragma: no cover
 
 
 
-def main():
+def main(): # pragma: no cover
     tictactoeGUI = TicTacToeGUI()
 
     tictactoeGUI.display_start_game_window()

@@ -148,6 +148,9 @@ class TestTicTacToeTextUI(unittest.TestCase):
 
 
 class TestTicTacToeGUI(unittest.TestCase): # pragma: no cover
+    """
+    This test can only be executed with a person playing the GUI version of the game.
+    """
     def setUp(self):
         self.tictactoeGUI = TicTacToeGUI()
     
