@@ -3,6 +3,7 @@ import sys
 import mock
 import builtins
 import random
+import tkinter
 from io import StringIO
 
 from game.tictactoe import TicTacToe, TicTacToeTextUI, Referee, Piece, Cell, Color, main
@@ -153,18 +154,26 @@ class TestTicTacToeGUI(unittest.TestCase): # pragma: no cover
     """
     def setUp(self):
         self.tictactoeGUI = TicTacToeGUI()
+        self.tictactoeGUI.set_up_game_window()
+        self.tictactoeGUI.set_up_start_game_window()
     
     def test_constructor(self):
         self.assertIsInstance(self.tictactoeGUI, TicTacToeGUI)
-    
-    def test_display_start_game_window(self):
-        #self.tictactoeGUI.display_start_game_window()
-        #print(self.tictactoeGUI.get_referee().get_player_with_turn())
-        #print(self.tictactoeGUI.get_referee().get_player_without_turn())
-        pass
 
-    def test_display_game_window(self):
+    def test_get_window(self):
+        self.assertIsInstance(self.tictactoeGUI.get_window(), tkinter.Tk)
+
+    def test_get_frames(self):
+        self.assertIsInstance(self.tictactoeGUI.get_frames(), dict)
+    
+    def test_set_up_start_game_window(self):
+        self.assertEqual(str(self.tictactoeGUI.get_referee().get_player_with_turn()), "Ellie/X")
+        self.assertEqual(str(self.tictactoeGUI.get_referee().get_player_without_turn()), "Joel/O")
+
+    def test_set_up_game_window(self):
+        # TODO
         pass
 
     def test_display_result_game_window(self):
+        # TODO
         pass
