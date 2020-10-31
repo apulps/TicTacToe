@@ -315,27 +315,27 @@ class TicTacToeTextUI(TicTacToe):
 
 
 def main(args):
-    tictactoetextUI = TicTacToeTextUI()
+    tictactoetextui = TicTacToeTextUI()
 
-    if not tictactoetextUI.are_valid_args(args):
-        tictactoetextUI.show_help()
+    if not tictactoetextui.are_valid_args(args):
+        tictactoetextui.show_help()
     else:
-        tictactoetextUI.set_up_with_args(args)
+        tictactoetextui.set_up_with_args(args)
         keep_going = True
-        tictactoetextUI.display_board(tictactoetextUI.get_referee().get_board())
+        tictactoetextui.display_board(tictactoetextui.get_referee().get_board())
 
         while keep_going:
-            tictactoetextUI.show_prompt()
-            cell = tictactoetextUI.insert_cell()
-            tictactoetextUI.make_move(cell)
+            tictactoetextui.show_prompt()
+            cell = tictactoetextui.insert_cell()
+            tictactoetextui.make_move(cell)
 
-            if tictactoetextUI.get_referee().is_over():
+            if tictactoetextui.get_referee().is_over():
                 keep_going = False
             else:
-                tictactoetextUI.display_board(tictactoetextUI.get_referee().get_board())
+                tictactoetextui.display_board(tictactoetextui.get_referee().get_board())
         
     try:
-        tictactoetextUI.show_result_match(tictactoetextUI.get_referee())
+        tictactoetextui.show_result_match(tictactoetextui.get_referee())
     except AttributeError:
         pass
 
